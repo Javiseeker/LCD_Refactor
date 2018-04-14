@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 #prints the top of the number
 def print_top_part(number,  columns):
     if number in {'0', '2', '3', '5', '6', '7', '8', '9'}:
