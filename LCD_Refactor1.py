@@ -1,10 +1,11 @@
-def print_upper_part(number,  columns):
+#prints the top of the number
+def print_top_part(number,  columns):
     if number in {'0', '2', '3', '5', '6', '7', '8', '9'}:
         print(' '+'_'*(columns-2)+' ', end=' ')
     elif number in {'1','4'}:
         print(' ' * columns, end=' ')
 
-
+#prints the lines from the top to the center of the number
 def print_center_up(number,  columns):
     if number in {'0', '4',  '8', '9'}:
         print('|'+' '*(columns-2) + '|', end=' ')
@@ -15,7 +16,7 @@ def print_center_up(number,  columns):
     else:
         print(' ' * columns, end=' ')
 
-
+#prints the center of the number
 def print_center(number, columns):
     if number in {'2', '4', '3', '5', '6', '8', '9'}:
         print(' ' + '_' * (columns - 2) + ' ', end=' ')
@@ -23,7 +24,7 @@ def print_center(number, columns):
         print(' ' * columns, end=' ')
 
 
-
+#prints the lines from the center to the bottom of the number
 def print_center_down(number, columns):
     if number in {'0', '8','6'}:
         print('|'+' '*(columns-2) + '|', end=' ')
@@ -37,7 +38,7 @@ def print_center_down(number, columns):
         print(' ' * columns, end=' ')
 
 
-
+#Prints the bottom of the number
 def print_bottom_part(number, columns):
     if number in {'0', '2', '3', '5', '6', '8', '9'}:
         print(' ' + '_' * (columns - 2) + ' ', end=' ')
@@ -47,10 +48,10 @@ def print_bottom_part(number, columns):
 
 
 
-
+#print_message_full prints the number in the required size.
 def print_message_full(message,size, columns):
-    for c in message :
-        print_upper_part(c,columns)
+    for c in message:
+        print_top_part(c,columns)
     print()
 
     for i in range(size):
@@ -59,7 +60,7 @@ def print_message_full(message,size, columns):
         print()
 
     for c in message:
-         print_center(c,columns)
+        print_center(c,columns)
     print()
 
     for i in range(size):
@@ -68,25 +69,25 @@ def print_message_full(message,size, columns):
         print()
 
     for c in message:
-         print_bottom_part(c, columns)
+        print_bottom_part(c, columns)
     print()
 
-
+#print_lcd sends the variables needed to print the number.
 def print_lcd(raw_data):
     for data in raw_data:
         section = data.split(",")
         size = int(section[0])
-        rows, columns = rc_selection(size)
+        columns = c_calculation(size)
         print_message_full(section[1],size,columns)
 
 
-
-def rc_selection(size):
-    rows = 2*size+3
+#c_calculation calculates the number of columns according to the size acquired.
+def c_calculation(size):
     columns = size+2
-    return rows, columns
+    return columns
 
 
+#Main Function where the number to print is extracted.
 def main():
     c = ""
     raw_data = list()
