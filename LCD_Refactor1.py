@@ -73,7 +73,7 @@ def print_message_full(message,size, columns):
     print()
 
 #print_lcd sends the variables needed to print the number.
-def print_lcd(raw_data):
+def arrange_variables(raw_data):
     for data in raw_data:
         section = data.split(",")
         size = int(section[0])
@@ -95,7 +95,7 @@ def main():
         print("Enter number's size and value separated by a comma (0,0 to end process): ")
         raw_data.append(input())
         c = str(raw_data[-1])
-        print_lcd(raw_data)
+        arrange_variables(raw_data)
         print()
 
 
