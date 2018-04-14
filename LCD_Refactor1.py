@@ -72,7 +72,7 @@ def print_message_full(message,size, columns):
         print_bottom_part(c, columns)
     print()
 
-#print_lcd sends the variables needed to print the number.
+#arrange_variables sends the variables needed to print the number.
 def arrange_variables(raw_data):
     for data in raw_data:
         section = data.split(",")
